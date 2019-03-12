@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UserScrip : MonoBehaviour {
-    [SerializeField]
+    //[SerializeField]
     double lat;
-    [SerializeField]
+    //[SerializeField]
     double lon;
 
     GameObject mapHandlerPointer;

@@ -40,10 +40,10 @@ public class MapHandler : MonoBehaviour {
     {
         
         gpsHandlePointer = GameObject.Find("GpsHandler");
-        //WorldToTilePos((float)gpsHandlePointer.GetComponent<GpsHandler>().userL.Latitude, (float)gpsHandlePointer.GetComponent<GpsHandler>().userL.Longitude, zoom);
+        WorldToTilePos((float)gpsHandlePointer.GetComponent<GpsHandler>().userL.Latitude, (float)gpsHandlePointer.GetComponent<GpsHandler>().userL.Longitude, zoom);
         //comentado ya que se usará mas adelante
 
-        WorldToTilePos( centerMapLon, centerMapLat, zoom);
+        //WorldToTilePos( centerMapLon, centerMapLat, zoom);
         Debug.Log("Tiles----- " + tileX + "/" + tileY);
 
         StartCoroutine(LoadTile(Mathf.FloorToInt((float)tileX), Mathf.FloorToInt((float)tileY), centerMap));

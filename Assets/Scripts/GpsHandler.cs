@@ -38,8 +38,10 @@ public class GpsHandler : MonoBehaviour {
 		
 
         // First, check if user has location service enabled
-        if (!Input.location.isEnabledByUser)
+        if (!Input.location.isEnabledByUser) { 
+            userLocationText.text = "break";
             yield break;
+        }
 
         // Start service before querying location
         Input.location.Start();
@@ -56,6 +58,7 @@ public class GpsHandler : MonoBehaviour {
         if (maxWait < 1)
         {
             print("Timed out");
+            userLocationText.text = "timed out";
             yield break;
         }
 
@@ -63,10 +66,12 @@ public class GpsHandler : MonoBehaviour {
         if (Input.location.status == LocationServiceStatus.Failed)
         {
             print("Unable to determine device location");
+            userLocationText.text = "Unable to determine device location";
             yield break;
         }
         else
         {
+            userLocationText.text = "Acces granted";
             // Access granted and location value could be retrieved
             print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp);
         }
@@ -80,7 +85,8 @@ public class GpsHandler : MonoBehaviour {
 
         userL.Latitude = (double) Input.location.lastData.latitude;
         userL.Longitude = (double) Input.location.lastData.longitude;
-	}
+        //userLocationText.text = userL.Latitude + "," + userL.Longitude;
+    }
 
 	
 
