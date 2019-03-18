@@ -32,15 +32,16 @@ public class MapHandler : MonoBehaviour {
     //no las usamos ahora
     public int zoom=14;
     public float centerMapLat = 41.391428f;
-    public float centerMapLon = 2.195363f;
-
+    //public float centerMapLon = 2.195363f;
+    public float centerMapLon = 1.985091f;
+    
     GameObject gpsHandlePointer;
 
     void Start()
     {
         
         gpsHandlePointer = GameObject.Find("GpsHandler");
-        WorldToTilePos((float)gpsHandlePointer.GetComponent<GpsHandler>().userL.Latitude, (float)gpsHandlePointer.GetComponent<GpsHandler>().userL.Longitude, zoom);
+        WorldToTilePos((float)gpsHandlePointer.GetComponent<GpsHandler>().Latitude, (float)gpsHandlePointer.GetComponent<GpsHandler>().Longitude, zoom);
         //comentado ya que se usará mas adelante
 
         //WorldToTilePos( centerMapLon, centerMapLat, zoom);
